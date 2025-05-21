@@ -1,0 +1,350 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+
+select{font-size: 16px;
+    padding: 10px 18px;
+    border-radius: 6px;
+    min-width:100px;
+    margin: 0 8px;}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.verb-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #444;
+    margin-bottom: 10px;
+}
+
+.conjugation-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.form-group label {
+    width: 120px;
+    font-weight: bold;
+}
+
+.conjugation-select {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 150px;
+    cursor: pointer;
+}
+
+.conjugation-select:disabled {
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+}
+
+.result {
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.correct {
+    color: green;
+}
+
+.incorrect {
+    color: red;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 10px 5px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#nextButton {
+    background-color: #2196F3;
+}
+
+#nextButton:hover {
+    background-color: #1976D2;
+}
+
+/* --- Стили для Режима 2 (mode2.html) --- */
+/* Контейнер для списка глаголов */
+#verbListContainer { /* Используем ID, так как он есть в HTML */
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Пространство между элементами списка */
+}
+
+/* Элемент списка глаголов (десктопная версия) */
+.verb-list-item {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+.verb-list-item .verb-info {
+    flex-grow: 1;
+}
+.verb-list-item .verb-infinitive {
+    font-weight: bold;
+}
+.verb-list-item .verb-translation {
+    font-size: 0.9em;
+    color: #555;
+}
+.verb-list-item input[type="text"],
+.verb-list-item .verb-select {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 180px;
+    cursor: pointer;
+}
+.verb-list-item .verb-select:disabled {
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+}
+.verb-list-item .result {
+    width: 260px;
+    font-weight: bold;
+}
+#instruction {
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    text-align: center;
+}
+.navigation-links {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.navigation-links a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+.navigation-links a:hover {
+    text-decoration: underline;
+}
+
+/* Добавляем медиа-запросы для адаптивности */
+@media (max-width: 600px) {
+    /* --- Корректировки для index.html --- */
+    .form-group {
+        flex-direction: column;
+        align-items: flex-start; /* Элементы в группе будут выровнены по левому краю колонки */
+        gap: 5px; /* Уменьшенный отступ для вертикального расположения */
+    }
+
+    .form-group label {
+        width: 100%; /* Метка займет всю ширину */
+        margin-bottom: 5px; /* Отступ между меткой и селектом */
+    }
+
+    .conjugation-select { /* Селект в index.html */
+        width: 100%; /* Селект займет всю ширину */
+    }
+
+    .form-group .result {
+        margin-left: 0; /* Убираем отступ слева при вертикальном расположении */
+        margin-top: 5px; /* Добавляем отступ сверху для результата */
+        text-align: left; /* Выравниваем текст результата по левому краю */
+    }
+
+    /* Корректируем кнопки в index.html (внутри .verb-card) */
+    .verb-card .buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Центрируем кнопки, если они не на всю ширину */
+    }
+    .verb-card .buttons button {
+        width: 90%; /* Ширина кнопки */
+        max-width: 300px; /* Максимальная ширина кнопки */
+        margin: 5px 0; /* Вертикальные отступы */
+    }
+
+    /* --- Корректировки для mode2.html --- */
+    .verb-list-item {
+        flex-direction: column; /* Элементы списка глаголов будут располагаться вертикально */
+        align-items: stretch; /* Дочерние элементы будут растягиваться на всю ширину */
+        gap: 10px; /* Пространство для вертикального стека */
+        padding: 10px;
+    }
+
+    .verb-list-item .verb-info {
+        flex-grow: 0; /* Сбрасываем flex-grow для вертикального расположения */
+        width: 100%;   /* Блок информации о глаголе займет всю ширину */
+        text-align: left;
+        margin-bottom: 0; /* Используем gap родителя */
+    }
+    
+    .verb-list-item .verb-info .verb-infinitive,
+    .verb-list-item .verb-info .verb-translation {
+        display: block; 
+        word-wrap: break-word; /* Добавим перенос слов для длинных строк */
+    }
+
+    .verb-list-item .verb-select { /* Селект в mode2.html */
+        width: 100%;   /* Селект займет всю ширину */
+        margin-bottom: 0; /* Используем gap родителя */
+        min-width: auto; /* Сбрасываем минимальную ширину для мобильных */
+        font-size: 16px; /* Убедимся, что размер шрифта удобен на мобильных */
+    }
+
+    .verb-list-item .result {
+        width: 100%; /* Результат может занимать всю ширину или auto в зависимости от дизайна */
+        text-align: left; /* Текст по левому краю */
+        margin-left: 0; /* Убираем горизонтальный отступ */
+        margin-top: 5px; /* Небольшой отступ сверху, если нужно отделить от селекта */
+        min-width: auto; /* Сбрасываем минимальную ширину */
+    }
+
+    /* Корректируем кнопки в mode2.html (контейнер .buttons, который прямой потомок .container) */
+    .container > .buttons { 
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Центрируем кнопки */
+    }
+    .container > .buttons button {
+        width: 90%; /* Ширина кнопки */
+        max-width: 300px; /* Максимальная ширина кнопки */
+        margin: 5px 0; /* Вертикальные отступы для стека кнопок */
+    }
+}
+
+/* --- Стили для основного навигационного меню --- */
+.main-nav {
+    background-color: #333; /* Темный фон для меню */
+    overflow: visible; /* Изменено с hidden на visible для выпадающего списка */
+    width: 100%;
+    margin-bottom: 25px; /* Отступ снизу от меню */
+    font-family: Arial, sans-serif; /* Используем стандартный шрифт */
+}
+
+.main-nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Центрируем основной элемент меню */
+}
+
+.main-nav li.dropdown {
+    position: relative; /* Необходимо для позиционирования выпадающего списка */
+}
+
+.main-nav li a.dropbtn, .main-nav li span.dropbtn { /* Добавил span для случаев, когда основной элемент не ссылка */
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 18px;
+    text-decoration: none;
+    cursor: default; /* Указываем, что это не ссылка, если это span */
+    font-size: 16px;
+}
+
+.main-nav li a.dropbtn:hover, .main-nav li.dropdown:hover span.dropbtn {
+    background-color: #555; /* Цвет фона при наведении */
+}
+
+.main-nav .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9; /* Светлый фон для выпадающего списка */
+    min-width: 320px; /* Минимальная ширина выпадающего списка, можно настроить */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 100; /* Чтобы меню было поверх других элементов */
+    left: 50%;
+    transform: translateX(-50%); /* Центрирование выпадающего списка */
+}
+
+.main-nav .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left; /* Текст ссылок в выпадающем списке по левому краю */
+    font-size: 15px;
+}
+
+.main-nav .dropdown-content a:hover {
+    background-color: #ddd; /* Цвет фона ссылок при наведении */
+}
+
+.main-nav .dropdown:hover .dropdown-content {
+    display: block; /* Показываем выпадающий список при наведении на родительский элемент */
+}
+
+.verb-list-item .result {
+    width: 260px; /* Место для ответа */
+    font-weight: bold;
+}
+
+#pronounSelector {
+    font-size: 16px;
+    padding: 10px 18px;
+    border-radius: 6px;
+    min-width: 220px;
+    margin: 0 8px;
+}
+.phrase-select {
+    font-size: 16px;
+    height: 40px;
+    min-width: 80px;
+}
+.phrase-select.correct {
+    background-color: #e6ffe6;
+    color: black;
+}
+.phrase-select.incorrect {
+    background-color: #ffe6e6;
+    color: red;
+}
+.correct { background: #e6ffe6; color: black; }
+.incorrect { background: #ffe6e6; color: red; }

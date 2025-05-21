@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Португальские неправильные глаголы - Режим тренировки</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Дополнительные стили для этой страницы, если нужны (скопированы из mode2.html) */
+        .verb-list-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #eee;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+        .verb-list-item .verb-info {
+            flex-grow: 1;
+        }
+        .verb-list-item .verb-infinitive {
+            font-weight: bold;
+        }
+        .verb-list-item .verb-translation {
+            font-size: 0.9em;
+            color: #555;
+        }
+        .verb-list-item .verb-select {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            width: 180px;
+            cursor: pointer;
+        }
+        .verb-list-item .verb-select:disabled {
+            background-color: #f5f5f5;
+            cursor: not-allowed;
+        }
+        .verb-list-item .result {
+            width: 350px;
+            font-weight: bold;
+        }
+        #instruction {
+            margin-bottom: 20px;
+            font-size: 1.2em;
+            text-align: center;
+        }
+        .navigation-links {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .navigation-links a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+        .navigation-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div id="header"></div>
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header').innerHTML = data;
+            });
+    </script>
+
+
+    <div class="container">
+        <h1>Португальские неправильные глаголы</h1>
+        <!-- Удаляем старый блок навигации -->
+        <!-- 
+        <div class="navigation-links">
+            <a href="index.html">Режим 1 (По одному глаголу)</a>
+            <a href="mode2.html">Режим 2 (Правильные глаголы)</a>
+        </div> 
+        -->
+
+        <div id="instruction">
+            Проспрягайте глаголы в форме: 
+            <select id="pronounSelector">
+                <option value="eu">Eu (я)</option>
+                <option value="tu">Tu (ты)</option>
+                <option value="ele">Ele/Ela/Você (он/она/Вы ед.ч.)</option>
+                <option value="nos">Nós (мы)</option>
+                <option value="eles">Eles/Elas/Vocês (они/Вы мн.ч.)</option>
+            </select>
+            <strong id="targetPronoun"></strong>
+        </div>
+
+        <div id="verbListContainer">
+            <!-- Сюда будут добавляться глаголы -->
+        </div>
+
+        <div class="buttons" style="text-align: center; margin-top: 20px;">
+            <button id="checkAnswersButton">Проверить ответы</button>
+            <button id="newExerciseButton">Новое задание</button>
+            <button id="addMoreVerbsButton">Добавить еще 10 глаголов</button> 
+        </div>
+    </div>
+    <script src="script_mode2_irregular.js"></script>
+</body>
+</html>

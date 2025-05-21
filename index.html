@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Изучение португальских глаголов</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="header"></div>
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header').innerHTML = data;
+            });
+    </script>
+
+
+    <div class="container">
+        <h1>Изучение португальских глаголов</h1>
+        
+        <div class="verb-card">
+            <h2 id="currentVerb">Глагол: <span id="verbInfinitive"></span></h2>
+            <p id="verbTranslation"></p>
+
+            <div class="conjugation-form">
+                <div class="form-group">
+                    <label>Eu</label>
+                    <select id="eu" class="conjugation-select">
+                        <option value="">Выберите ответ...</option>
+                    </select>
+                    <span class="result"></span>
+                </div>
+                <div class="form-group">
+                    <label>Tu</label>
+                    <select id="tu" class="conjugation-select">
+                        <option value="">Выберите ответ...</option>
+                    </select>
+                    <span class="result"></span>
+                </div>
+                <div class="form-group">
+                    <label>Ele/ela/você</label>
+                    <select id="ele" class="conjugation-select">
+                        <option value="">Выберите ответ...</option>
+                    </select>
+                    <span class="result"></span>
+                </div>
+                <div class="form-group">
+                    <label>Nós</label>
+                    <select id="nos" class="conjugation-select">
+                        <option value="">Выберите ответ...</option>
+                    </select>
+                    <span class="result"></span>
+                </div>
+                <div class="form-group">
+                    <label>Eles/elas/vocês</label>
+                    <select id="eles" class="conjugation-select">
+                        <option value="">Выберите ответ...</option>
+                    </select>
+                    <span class="result"></span>
+                </div>
+            </div>
+
+            <div class="buttons">
+                <button id="checkButton">Проверить</button>
+                <button id="nextButton" style="display: none;">Следующий глагол</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Удаляем старый блок навигации внизу -->
+    <!--
+    <div style="text-align: center; margin-top: 20px;">
+    <a href="mode2.html" style="text-decoration: none; color: #007bff; font-weight: bold;">Перейти к режиму 2 (10 правильных глаголов)</a>
+    <br> 
+    <a href="mode2_irregular.html" style="text-decoration: none; color: #007bff; font-weight: bold; margin-top: 10px; display: inline-block;">Перейти к режиму 2 (10 неправильных глаголов)</a>
+    </div>
+    -->
+
+    <script src="script.js"></script>
+</body>
+</html>

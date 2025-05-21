@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Португальские глаголы - Режим 2</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="header"></div>
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header').innerHTML = data;
+            });
+    </script>
+
+
+    <div class="container">
+        <h1>Португальские глаголы  -ar, -er и -ir</h1>
+        <!-- Удаляем старый блок навигации -->
+        <!--
+        <div class="navigation-links">
+            <a href="index.html">Режим 1 (По одному глаголу)</a>
+            <a href="mode2_irregular.html">Режим 2 (Неправильные глаголы)</a>
+        </div>
+        -->
+
+        <div id="instruction">
+            Проспрягайте глаголы в форме: 
+            <select id="pronounSelector">
+                <option value="eu">Eu (я)</option>
+                <option value="tu">Tu (ты)</option>
+                <option value="ele">Ele/Ela/Você (он/она/Вы ед.ч.)</option>
+                <option value="nos">Nós (мы)</option>
+                <option value="eles">Eles/Elas/Vocês (они/Вы мн.ч.)</option>
+                <!--  <option value="random">Случайное местоимение</option>Добавим опцию случайного выбора -->
+            </select>
+            <strong id="targetPronoun"></strong> <!-- Этот элемент теперь будет обновляться JS в зависимости от выбора -->
+        </div>
+
+        <div id="verbListContainer">
+            <!-- Сюда будут добавляться глаголы -->
+        </div>
+
+        <div class="buttons" style="text-align: center; margin-top: 20px;">
+            <button id="checkAnswersButton">Проверить ответы</button>
+            <button id="newExerciseButton">Новое задание</button>
+            <button id="addMoreVerbsButton">Добавить еще 10 глаголов</button> 
+        </div>
+    </div>
+    <script src="script_mode2.js"></script>
+</body>
+</html>

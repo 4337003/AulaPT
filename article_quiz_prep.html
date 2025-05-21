@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выбери правильный предлог + артикль</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="header"></div>
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header').innerHTML = data;
+            });
+    </script>
+
+    <div class="container">
+        <h1>Выбери правильный предлог + артикль</h1>
+        <div id="articleBlock">
+            <div id="phrase"></div>
+            <div id="constructor"></div>
+        </div>
+        <div class="buttons" style="text-align: center; margin-top: 20px;">
+            <button id="checkArticleButton">Проверить</button>
+            <button id="nextArticleButton">Следующая фраза</button>
+        </div>
+        <div id="resultBlock" style="text-align:center; margin-top:20px;"></div>
+    </div>
+    <script src="script_article_quiz_prep.js"></script>
+</body>
+</html>
